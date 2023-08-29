@@ -61,7 +61,7 @@ class TodayColleсtionViewCell: UICollectionViewCell {
         publishedLabel.text = "1h ago"
         let publisherURL = article.publisher
         let newsURL = article.image
-        async {
+        Task {
             do {
                 let publisherImage = try await loadImage(url: publisherURL)
                 let newsImage = try await loadImage(url: newsURL)

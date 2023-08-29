@@ -207,7 +207,7 @@ private extension DetailViewController {
         let commentBarButton = createNavBarButton(imageName: "bubble.left", selector: #selector(commentButtonTapped))
         let backBarButton = createNavBarButton(imageName: "arrow.backward", selector: #selector(backButtonTapped))
         
-        var space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
         space.width = 10
         
         // Установка элементов в правой части навигационной панели
