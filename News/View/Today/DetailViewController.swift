@@ -21,11 +21,6 @@ class DetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // да... это плохо
-        imageView.image = UIImage(named: "")
-        image.image = UIImage(named: "")
-        descriptionLabel.text = ""
-        textLabel.text = ""
     }
     
     func fetchData(with article: Article) {
@@ -239,7 +234,6 @@ private extension DetailViewController {
     
     func layout(in contentView: UIView) {
         NSLayoutConstraint.activate([
-            
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -290,5 +284,22 @@ private extension DetailViewController {
             textLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
         ])
+        
+        if UIScreen.main.bounds.height <= 1224 {
+            // 50/50?
+            likeButton.configuration?.buttonSize = .small
+            dislikeButton.configuration?.buttonSize = .small
+            followingButton.configuration?.buttonSize = .small
+            commentButton.configuration?.buttonSize = .small
+            shareButton.configuration?.buttonSize = .small
+            
+            NSLayoutConstraint.activate([
+                likeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                dislikeButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 9),
+                followingButton.leadingAnchor.constraint(equalTo: dislikeButton.trailingAnchor, constant: 9),
+                commentButton.leadingAnchor.constraint(equalTo: followingButton.trailingAnchor, constant: 9),
+                shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
+            ])
+        }
     }
 }
