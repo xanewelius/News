@@ -88,6 +88,7 @@ class DetailViewController: UIViewController {
         button.contentMode = .scaleAspectFill
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
+        button.titleLabel?.font = .systemFont(ofSize: 11)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: action, for: .touchUpInside)
         button.setImage(UIImage(systemName: imageName), for: .normal)
@@ -285,7 +286,7 @@ private extension DetailViewController {
             textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
         ])
         
-        if UIScreen.main.bounds.height <= 1224 {
+        if UIScreen.main.bounds.height <= 850 {
             // 50/50?
             likeButton.configuration?.buttonSize = .small
             dislikeButton.configuration?.buttonSize = .small
